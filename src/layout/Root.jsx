@@ -4,11 +4,11 @@ import Footer from "../shared/Footer/Footer";
 
 const Root = () => {
     return (
-        <>
+        <div className="px-6">
         <Navbar></Navbar>
         <Outlet></Outlet>
         <Footer></Footer>
-        </>
+        </div>
     );
 };
 
