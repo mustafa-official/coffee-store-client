@@ -26,7 +26,7 @@ const CoffeCard = ({ coffee, setCoffees, coffees }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               const remaining = coffees.filter((cof) => cof._id !== id);
-              setCoffees(remaining)
+              setCoffees(remaining);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
@@ -51,8 +51,12 @@ const CoffeCard = ({ coffee, setCoffees, coffees }) => {
           <p className="text-sm dark:text-gray-600">{category}</p>
         </div>
         <div className="join join-vertical space-y-2">
-          <Link to={`/viewDetails/${_id}`}><button className="btn w-full join-item ">View</button></Link>
-          <Link to={`/update/${_id}`}><button className="btn w-full join-item">Edit</button></Link>
+          <Link to={`/viewDetails/${_id}`}>
+            <button className="btn w-full join-item ">View</button>
+          </Link>
+          <Link to={`/update/${_id}`}>
+            <button className="btn w-full join-item">Edit</button>
+          </Link>
           <button onClick={() => handleDelete(_id)} className="btn join-item ">
             Delete
           </button>
@@ -66,4 +70,6 @@ export default CoffeCard;
 
 CoffeCard.propTypes = {
   coffee: PropTypes.object,
+  setCoffees: PropTypes.func,
+  coffees: PropTypes.array,
 };
