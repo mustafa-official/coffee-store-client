@@ -5,6 +5,9 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AddCoffee from "../components/AddCoffee";
 import UpdateCoffee from "../components/UpdateCoffee";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
+import Register from "../pages/Register/Register";
+import User from "../pages/User/User";
+import Login from "../pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +33,19 @@ const router = createBrowserRouter([
         path: "/viewDetails/:id",
         element: <ViewDetails></ViewDetails>,
         loader: ({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      },
+      {
+        path: "/user",
+        element: <User></User>,
+        loader: ()=> fetch('http://localhost:5000/user')
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
       }
     ],
   },
